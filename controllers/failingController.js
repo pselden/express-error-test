@@ -8,13 +8,13 @@ function FailingController(){
         async.parallel([
             function(callback){
                 setTimeout(function(){
-                    console.log(req.params);
+                    console.log(req.params.p1);
                     callback('Its dead, Jim');
                 }, 100);
             },
             function(callback){
                 setTimeout(function(){
-                    console.log(req.params);
+                    console.log(req.params.p1.abc + req.params.p2); // kaboom
                     callback();
                 }, 500);
             }
